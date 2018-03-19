@@ -1,0 +1,13 @@
+{
+  "name": "kjonski/how-to-bundle",
+  "type": "symfony-bundle",
+  "description": "Step-by-step Symfony bundle tutorial",
+  "keywords": ["php", "symfony", "reusable bundle", "tutorial"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Karol Jonski",
+      "email": "kjonski@pgs-soft.com"
+    }
+  ]
+}
