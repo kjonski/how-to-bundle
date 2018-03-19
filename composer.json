@@ -9,5 +9,20 @@
       "name": "Karol Jonski",
       "email": "kjonski@pgs-soft.com"
     }
-  ]
+  ],
+  "autoload": {
+    "psr-4": { "Kjonski\\HowToBundle\\": "src/" }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Kjonski\\HowToBundle\\Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "symfony/http-kernel": "^4.0",
+    "phpunit/phpunit": "^7.0"
+  },
+  "require": {
+    "symfony/dependency-injection": "^4.0"
+  }
 }
