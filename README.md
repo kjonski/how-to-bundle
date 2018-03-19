@@ -29,3 +29,25 @@ and open with editor.
 }
 ```
 commit and push changes.
+
+## 4. Configure project repository
+If you want develop bundle inside existing project and unles bundle isn't in [packagist.org](https://packagist.org/) please configure main project's `composer.json`.
+Add/modify `repositories` section:
+```json
+"repositories": [
+    {
+        "type": "git",
+        "url": "https://github.com/kjonski/how-to-bundle.git"
+    }
+],
+```
+when using Github repository, or:
+```json
+"repositories": [
+    {
+        "type": "git",
+        "url": "/path/to/how-to-bundle.git",
+    }
+],
+```
+when using local repository. For more details @see [Composer documentation](https://getcomposer.org/doc/05-repositories.md#loading-a-package-from-a-vcs-repository).
