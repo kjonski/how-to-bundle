@@ -27,6 +27,7 @@
     "friendsofphp/php-cs-fixer": "^2.10"
   },
   "require": {
-    "symfony/dependency-injection": "^4.0"
+    "symfony/dependency-injection": "^4.0",
+    "symfony/config": "^4.0"
   }
 }
