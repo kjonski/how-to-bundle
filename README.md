@@ -1,4 +1,7 @@
 [![Build Status](https://travis-ci.org/kjonski/how-to-bundle.svg?branch=master)](https://travis-ci.org/kjonski/how-to-bundle)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/kjonski/how-to-bundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/kjonski/how-to-bundle/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/kjonski/how-to-bundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/kjonski/how-to-bundle/?branch=master)
+
 # how-to-bundle
 Step-by-step tutorial how to prepare Symfony bundle
 
