@@ -235,8 +235,14 @@ b$ vendor/bin/phpstan analyse --level=4 src -c tests/phpstan.neon
 b$ phpdbg -qrr vendor/bin/phpunit -c tests/phpunit.xml
 ```
 
+## Build? Oh, yes!
+  * Go to <https://docs.travis-ci.com/user/getting-started/> and follow instruction to enable Travis builds for your (Github) repository.
+  * Add simple [.travis.yaml](../master/.travis.yaml) or follow [Symfony Continuous Integration](http://symfony.com/doc/current/bundles/best_practices.html#continuous-integration).  
+  From now build will be run on every push to your repository.  
+
 Sources
 ------
 <https://getcomposer.org/doc/05-repositories.md#loading-a-package-from-a-vcs-repository>  
-<https://symfony.com/doc/current/bundles.html#creating-a-bundle>
+<https://symfony.com/doc/current/bundles.html#creating-a-bundle>  
+<https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet>
 
