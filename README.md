@@ -240,8 +240,32 @@ b$ phpdbg -qrr vendor/bin/phpunit -c tests/phpunit.xml
   * Go to <https://docs.travis-ci.com/user/getting-started/> and follow instruction to enable Travis builds for your (Github) repository.
   * Add simple [.travis.yaml](../master/.travis.yaml) or follow [Symfony Continuous Integration](http://symfony.com/doc/current/bundles/best_practices.html#continuous-integration).  
   From now build will be run on every push to your repository.
-  * Now you can go to your Travis profile -> your repository, grab your build badge and add to `README.md`.  
+  * Now you can go to your Travis profile -> your repository, grab your build badge and add to `README.md`  
   ![Build badge](../master/src/Resources/images/travis_ci_build_badge.png "Travis build bagde")
+  
+## More badges?
+  * Go to <https://scrutinizer-ci.com/> and Sign Up with Github
+  * Add repository
+  * Update configuration
+  ```yaml
+build:
+    nodes:
+        analysis:
+            ...
+            tests:
+                override:
+                    ...
+                    -
+                        command: vendor/bin/phpunit -c tests/phpunit.xml
+                        coverage:
+                            file: 'tests/coverage.xml'
+                            format: 'clover'
+...                                                    
+```
+to enable code coverage.
+  * Run inspection
+  * Get badges from summary screen  
+  ![Build badge](../master/src/Resources/images/scrutinizer_summary.png "Scrutinizer bagdes")
    
 
 Sources
