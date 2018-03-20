@@ -145,6 +145,21 @@ and run from bundle directory:
 $ ./vendor/bin/phpunit tests
 ```
 
+At any point of time from you can:
+```console
+$ composer remove kjonski/how-to-bundle
+```
+and
+```console
+$ composer require kjonski/how-to-bundle
+```
+and your bundle will be reinstaled.  
+Be advised that you need to run:
+```console
+...vendor/yourVendorName/yourBundle$ composer install
+```
+to install your dev dependencies.
+
 ## Add tests configuration (`tests/phpunit.xml`)
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -196,7 +211,7 @@ $ ./vendor/bin/phpunit tests
 </phpunit>
 ```
 
-For some you will need own [kernel](../blob/master/tests/App/AppKernel.php) for phpunit.  
+For some you will need own [kernel](../master/tests/App/AppKernel.php) for phpunit.  
 Please add `tests/coverage.xml` to ignored files.  
 Now you are ready to run your test suite:
 ```console
