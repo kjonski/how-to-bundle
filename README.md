@@ -144,3 +144,67 @@ and run from bundle directory:
 ```console
 $ ./vendor/bin/phpunit tests
 ```
+
+## Add tests configuration (`tests/phpunit.xml`)
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.1/phpunit.xsd"
+         backupGlobals='false'
+         backupStaticAttributes='false'
+         beStrictAboutTestsThatDoNotTestAnything='true'
+         bootstrap='./../vendor/autoload.php'
+         colors='true'
+         convertErrorsToExceptions='true'
+         convertNoticesToExceptions='true'
+         convertWarningsToExceptions='true'
+         stopOnError='false'
+         stopOnFailure='false'
+         stopOnIncomplete='false'
+         stopOnSkipped='false'
+         verbose='true'
+>
+    <php>
+        <ini name="error_reporting" value="-1" />
+        <env name="KERNEL_CLASS" value="\Kjonski\HowToBundle\Tests\App\AppKernel" />
+        <ini name='display_errors' value='1' />
+        <ini name='display_startup_errors' value='1' />
+        <ini name='error_reporting' value='-1' />
+        <ini name='memory_limit' value='-1' />
+    </php>
+
+    <testsuites>
+        <testsuite name="How To Bundle Test Suite">
+            <directory>.</directory>
+        </testsuite>
+    </testsuites>
+
+    <logging>
+        <log type='coverage-clover' target='coverage.xml' />
+        <log type='coverage-text' target='php://stdout' showOnlySummary='true' />
+    </logging>
+
+    <filter>
+        <whitelist>
+            <directory>../src</directory>
+            <exclude>
+                <directory>../vendor</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>
+```
+
+For some you will need own [kernel](../blob/master/tests/App/AppKernel.php) for phpunit.  
+Please add `tests/coverage.xml` to ignored files.  
+Now you are ready to run your test suite:
+```console
+$ ./vendor/bin/phpunit -c tests/phpunit.xml
+```
+
+Sources
+------
+<https://getcomposer.org/doc/05-repositories.md#loading-a-package-from-a-vcs-repository>
+<https://symfony.com/doc/current/bundles.html#creating-a-bundle>
+
