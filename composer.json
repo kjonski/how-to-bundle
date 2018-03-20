@@ -20,7 +20,11 @@
   },
   "require-dev": {
     "symfony/http-kernel": "^4.0",
-    "phpunit/phpunit": "^7.0"
+    "phpunit/phpunit": "^7.0",
+    "phpstan/phpstan": "^0.9.2",
+    "sebastian/phpcpd": "^4.0",
+    "squizlabs/php_codesniffer": "^3.2",
+    "friendsofphp/php-cs-fixer": "^2.10"
   },
   "require": {
     "symfony/dependency-injection": "^4.0"

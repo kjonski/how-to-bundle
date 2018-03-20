@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Kjonski\HowToBundle\Tests;
-
 
 use Kjonski\HowToBundle\DependencyInjection\KjonskiHowToExtension;
 use Kjonski\HowToBundle\KjonskiHowToBundle;

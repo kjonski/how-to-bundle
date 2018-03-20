@@ -4,7 +4,7 @@ Step-by-step tutorial how to prepare Symfony bundle
 ## Prepare repository
 Prepare bundle repository in the way you like. You can use Github or local repository.
 Be advised that repository need to accessible by your future project.   
-With Github wizard you can add README.md and LICENCE
+With Github wizard you can add README.md and LICENSE
 
 ## Clone repository
 ```bash
@@ -58,9 +58,10 @@ $ composer require kjonski/how-to-bundle
 ```
 
 ## Prepare structure
+b$ means vendor/yourVendorName/yourBundle (`vendor/kjonski/how-to-bundle`) directory.
 ```console
-$ mkdir src
-$ mkdir tests
+b$ mkdir src
+b$ mkdir tests
 ```
 
 ## Configure autoloading in your `composer.json`
@@ -77,9 +78,9 @@ $ mkdir tests
 
 ## Install dependencies
 ```console
-$ composer require symfony/dependency-injection
-$ composer require --dev symfony/http-kernel
-$ composer require --dev phpunit/phpunit
+b$ composer require symfony/dependency-injection
+b$ composer require --dev symfony/http-kernel
+b$ composer require --dev phpunit/phpunit
 ```
 
 ## Add bundle class
@@ -142,7 +143,7 @@ class KjonskiHowToBundleTest extends TestCase
 
 and run from bundle directory:
 ```console
-$ ./vendor/bin/phpunit tests
+b$ vendor/bin/phpunit tests
 ```
 
 At any point of time from you can:
@@ -156,7 +157,7 @@ $ composer require kjonski/how-to-bundle
 and your bundle will be reinstaled.  
 Be advised that you need to run:
 ```console
-...vendor/yourVendorName/yourBundle$ composer install
+b$ composer install
 ```
 to install your dev dependencies.
 
@@ -215,11 +216,27 @@ For some you will need own [kernel](../master/tests/App/AppKernel.php) for phpun
 Please add `tests/coverage.xml` to ignored files.  
 Now you are ready to run your test suite:
 ```console
-$ ./vendor/bin/phpunit -c tests/phpunit.xml
+b$ vendor/bin/phpunit -c tests/phpunit.xml
+```
+
+## Time for code quality tools
+Install:
+```console
+b$ composer require --dev phpstan/phpstan
+b$ composer require --dev sebastian/phpcpd
+b$ composer require --dev squizlabs/php_codesniffer
+b$ composer require --dev friendsofphp/php-cs-fixer
+```
+add [php-cs-fixer.config.php](../master/tests/php-cs-fixer.config.php), [phpstan.neon](../master/tests/phpstan.neon) and run:
+```console
+b$ vendor/bin/php-cs-fixer fix --config=tests/php-cs-fixer.config.php --dry-run --diff src tests
+b$ vendor/bin/phpcs --report-full --standard=PSR2 src tests
+b$ vendor/bin/phpstan analyse --level=4 src -c tests/phpstan.neon
+b$ phpdbg -qrr vendor/bin/phpunit -c tests/phpunit.xml
 ```
 
 Sources
 ------
-<https://getcomposer.org/doc/05-repositories.md#loading-a-package-from-a-vcs-repository>
+<https://getcomposer.org/doc/05-repositories.md#loading-a-package-from-a-vcs-repository>  
 <https://symfony.com/doc/current/bundles.html#creating-a-bundle>
 
