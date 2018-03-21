@@ -270,6 +270,10 @@ to enable code coverage.
   * Get badges from summary screen  
   ![Build badge](../master/src/Resources/images/scrutinizer_summary.png "Scrutinizer bagdes")
    
+## Go live with packagist
+  * Go to <https://packagist.org> and submit your bundle
+  * Configure [GitHub Service Hook](https://packagist.org/about#how-to-update-packages) to keep your package up to date
+  * Remember to remove your local/Github repository from project's `composer.json` repositories section
 
 Sources
 ------
