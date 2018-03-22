@@ -7,8 +7,9 @@ Step-by-step tutorial how to prepare Symfony bundle
 
 ## Prepare repository
 Prepare bundle repository in the way you like. You can use Github or local repository.
-Be advised that repository need to accessible by your future project.   
-With Github wizard you can add README.md and LICENSE
+Be advised that repository need to be accessible by your future project.   
+With Github wizard you can add README.md and LICENSE  
+![Github repository wizard](../master/src/Resources/images/github_repository_wizard.png "Github repository wizard")
 
 ## Clone repository
 ```bash
@@ -34,8 +35,8 @@ and open with editor.
 ```
 commit and push changes.
 
-## Configure project repository
-If you want develop bundle inside existing project and unles bundle isn't in [packagist.org](https://packagist.org/) please configure main project's `composer.json`.
+## Configure project's repository
+If you want develop bundle inside existing project and unless bundle isn't in [packagist.org](https://packagist.org/) please configure main project's `composer.json`.
 Add/modify `repositories` section:
 ```json
 "repositories": [
@@ -50,7 +51,7 @@ when using Github repository, or:
 "repositories": [
     {
         "type": "git",
-        "url": "/path/to/how-to-bundle.git",
+        "url": "/path/to/how-to-bundle.git"
     }
 ],
 ```
@@ -62,7 +63,7 @@ $ composer require kjonski/how-to-bundle
 ```
 
 ## Prepare structure
-b$ means vendor/yourVendorName/yourBundle (`vendor/kjonski/how-to-bundle`) directory.
+`b$` means vendor/yourVendorName/yourBundle (`vendor/kjonski/how-to-bundle`) directory.
 ```console
 b$ mkdir src
 b$ mkdir tests
@@ -150,7 +151,7 @@ and run from bundle directory:
 b$ vendor/bin/phpunit tests
 ```
 
-At any point of time from you can:
+At any point of time from now you can:
 ```console
 $ composer remove kjonski/how-to-bundle
 ```
@@ -170,7 +171,7 @@ to install your dev dependencies.
 <?xml version="1.0" encoding="UTF-8"?>
 
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.1/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/7.0/phpunit.xsd"
          backupGlobals='false'
          backupStaticAttributes='false'
          beStrictAboutTestsThatDoNotTestAnything='true'
@@ -216,8 +217,9 @@ to install your dev dependencies.
 </phpunit>
 ```
 
-For some you will need own [kernel](../master/tests/App/AppKernel.php) for phpunit.  
-Please add `tests/coverage.xml` to ignored files.  
+  * You can see KERNEL_CLASS configured because for some cases you will need own [kernel](../master/tests/App/AppKernel.php) for phpunit.  
+  * Please add `tests/coverage.xml` to ignored files.  
+
 Now you are ready to run your test suite:
 ```console
 b$ vendor/bin/phpunit -c tests/phpunit.xml
@@ -231,7 +233,7 @@ b$ composer require --dev sebastian/phpcpd
 b$ composer require --dev squizlabs/php_codesniffer
 b$ composer require --dev friendsofphp/php-cs-fixer
 ```
-add [php-cs-fixer.config.php](../master/tests/php-cs-fixer.config.php), [phpstan.neon](../master/tests/phpstan.neon) and run:
+add [php-cs-fixer.config.php](../master/tests/php-cs-fixer.config.php), [phpstan.neon](../master/tests/phpstan.neon) (optional) and run:
 ```console
 b$ vendor/bin/php-cs-fixer fix --config=tests/php-cs-fixer.config.php --dry-run --diff src tests
 b$ vendor/bin/phpcs --report-full --standard=PSR2 src tests
@@ -241,7 +243,7 @@ b$ phpdbg -qrr vendor/bin/phpunit -c tests/phpunit.xml
 
 ## Build? Oh, yes!
   * Go to <https://docs.travis-ci.com/user/getting-started/> and follow instruction to enable Travis builds for your (Github) repository.
-  * Add simple [.travis.yaml](../master/.travis.yaml) or follow [Symfony Continuous Integration](http://symfony.com/doc/current/bundles/best_practices.html#continuous-integration).  
+  * Add simple [.travis.yml](../master/.travis.yml) or follow [Symfony Continuous Integration](http://symfony.com/doc/current/bundles/best_practices.html#continuous-integration).  
   From now build will be run on every push to your repository.
   * Now you can go to your Travis profile -> your repository, grab your build badge and add to `README.md`  
   ![Build badge](../master/src/Resources/images/travis_ci_build_badge.png "Travis build bagde")
